@@ -1,9 +1,11 @@
 var fetch = require('node-fetch');
 var tough = require('tough-cookie');
+var fetchival = require('./fetchival.js');
 var fs = require('fs')
 var Cookie = tough.Cookie;
 
 module.exports = tfetch;
+tfetch.fetchival = fetchival("",{fetch: tfetch()});
 
 function tfetch(){
     var cookieJar = new tough.CookieJar();
@@ -29,7 +31,6 @@ function tfetch(){
 
     async function newFetch(url,options={},...args){
         const oldCookies = await getCookies(url);
-        console.log('oldCookies',oldCookies)
         if(oldCookies.length){
             if(!options.headers)options.headers={};
             options.headers['cookie'] = oldCookies.join('; ');
@@ -37,7 +38,6 @@ function tfetch(){
         var answer = await fetch(url,options,...args)
         const cookieString = answer.headers.get('set-cookie');
         await setCookie(cookieString, answer.url);
-        console.log(cookieJar);
         return answer
     }
 
@@ -62,7 +62,6 @@ function tfetch(){
         newFetch.clearCookies();
         data.cookies.forEach(cookieDefinition=>{
             var cookie = Cookie.fromJSON(cookieDefinition)
-            console.log(cookie)
             cookieJar.setCookieSync(cookie,(cookie.secure?'https':'http')+'://'+cookie.domain+cookie.path);
         });
         
