@@ -1,0 +1,20 @@
+{
+  "name":"tnfetch",
+  "version": "0.0.1",
+  "description": "wrapper for node-fetch that is handling cookies",
+  "main": "index.js",
+  "author": "Tobias Nickel",
+  "license": "MIT",
+  "keywords": [
+      "fetch",
+      "http",
+      "cookie",
+      "session",
+      "awesome"
+  ],
+  "dependencies": {
+    "@types/node-fetch": "^2.1.2",
+    "node-fetch": "^2.2.0",
+    "tough-cookie": "^2.4.3"
+  }
+}
