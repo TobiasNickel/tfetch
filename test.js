@@ -20,5 +20,5 @@ fetch(url).then(r=>r.text()).then(data=>{
     return fetch(url).then(r=>r.text())
 }).then(data=>{
     console.log(data.length);
-
+    fs.unlinkSync(cookiePath);
 }).catch(err=>console.log(err));

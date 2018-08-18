@@ -1,5 +1,4 @@
-# tfetch
-a wrapper for node-fetch with tough-cookie
+wrapper for node-fetch with tough-cookie
 
 ## Motivation
 I like the http apis of fetch. They are awesome. And I want to use them. 
