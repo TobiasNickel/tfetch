@@ -1,6 +1,6 @@
 {
   "name":"tnfetch",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "wrapper for node-fetch that is handling cookies",
   "main": "index.js",
   "author": "Tobias Nickel",

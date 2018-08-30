@@ -64,7 +64,6 @@ function fetchival(url, opts) {
         if(!u.startsWith('http')==0 || ![4,5].includes(u.indexOf('://'))){
             u = url + (u[0] === '/' ? '' : '/') + u;
         }
-        u = url + (u[0] === '/' ? '' : '/') + u;
         o = o || {};
         defaults(o, opts);
         return fetchival(u, o);
